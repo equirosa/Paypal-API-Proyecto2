@@ -21,6 +21,8 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
 
   finalAmount: number = 1;
 
+  currency: string = 'USD';
+
   paypalConfig = {
     env: 'sandbox',
     client: {
@@ -32,7 +34,7 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
         payment: {
           transactions: [
             {
-              amount: { total: this.finalAmount, currency: 'USD' }
+              amount: { total: this.finalAmount, currency: this.currency }
             }
           ]
         }
@@ -43,7 +45,7 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
         console.log('Payment Successful');
         new Promise((resolve, rejects) => {
           let successElement = document.createElement('h2');
-          successElement.textContent = "Payment Successful at: " + new Date();
+          successElement.textContent = "Payment Successful at: " + new Date() + '\n Amount: ' + this.finalAmount + ' ' + this.currency;
           successElement.onload = resolve;
           document.body.appendChild(successElement);
         })
