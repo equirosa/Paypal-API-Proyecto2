@@ -17,19 +17,19 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
   }
 
-  addScript: boolean = false;
+  addScript: boolean = false; // Denota si ya se cargó el script de PayPal
 
-  finalAmount: number = 1;
+  finalAmount: number = 1; // Monto a cobrar, se puede alterar
 
-  currency: string = 'USD';
+  currency: string = 'USD'; // Moneda en la que se va a pagar
 
   paypalConfig = {
     env: 'sandbox',
     client: {
-      sandbox: 'AdRbV0GaqBDNaFYhZagUX5gyZDQZy-zP8RIfn8PRgCIqsQMYyPKhD-OPjTDGpvmPZ5wovzQOtgOSsVdt'
+      sandbox: 'AdRbV0GaqBDNaFYhZagUX5gyZDQZy-zP8RIfn8PRgCIqsQMYyPKhD-OPjTDGpvmPZ5wovzQOtgOSsVdt' // 'Client ID' de la aplicación
     },
     commit: true,
-    payment: (data, actions) => {
+    payment: (data, actions) => { // se define el pago a realizar
       return actions.payment.create({
         payment: {
           transactions: [
@@ -40,11 +40,12 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
         }
       });
     },
-    onAuthorize: (data, actions) => {
+    onAuthorize: (data, actions) => { // Corre luego de que hay una autorización exitosa
       return actions.payment.execute().then((payment) => {
         console.log('Payment Successful');
         new Promise((resolve, rejects) => {
           let successElement = document.createElement('h2');
+          // Crea un elemento de HTML para notificar que el pago fue exitoso.
           successElement.textContent = "Payment Successful at: " + new Date() + '\n Amount: ' + this.finalAmount + ' ' + this.currency;
           successElement.onload = resolve;
           document.body.appendChild(successElement);
@@ -53,15 +54,15 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
     }
   };
 
-  ngAfterViewChecked(): void {
+  ngAfterViewChecked(): void { // Crea el botón de pago de PayPal al visitar la página.
     if (!this.addScript) {
-      this.addPaypalScript().then(() => {
+      this.addPaypalScript().then(() => { // se crea el botón luego de cargar el script de paypal
         paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
       })
     }
   }
 
-  addPaypalScript() {
+  addPaypalScript() { // Llama el script de pagos de paypal
     this.addScript = true;
     return new Promise((resolve, rejects) => {
       let scriptTagElement = document.createElement('script');
