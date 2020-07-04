@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30223.230
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paypal-API-Proyecto2", "Paypal-API-Proyecto2.csproj", "{33CC5E1D-FBA7-4763-A068-B339C9B540F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayPalAngular", "PayPalAngular\PayPalAngular.csproj", "{6C98566A-6862-42EF-93ED-7693358D9734}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33CC5E1D-FBA7-4763-A068-B339C9B540F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CC5E1D-FBA7-4763-A068-B339C9B540F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CC5E1D-FBA7-4763-A068-B339C9B540F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CC5E1D-FBA7-4763-A068-B339C9B540F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C98566A-6862-42EF-93ED-7693358D9734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C98566A-6862-42EF-93ED-7693358D9734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C98566A-6862-42EF-93ED-7693358D9734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C98566A-6862-42EF-93ED-7693358D9734}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27D745FE-7472-4029-B70D-6636DF619938}
+	EndGlobalSection
+EndGlobal
