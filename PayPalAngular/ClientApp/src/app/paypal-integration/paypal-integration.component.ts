@@ -41,6 +41,12 @@ export class PaypalIntegrationComponent implements OnInit, AfterViewChecked {
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then((payment) => {
         console.log('Payment Successful');
+        new Promise((resolve, rejects) => {
+          let successElement = document.createElement('h2');
+          successElement.textContent = "Payment Successful at: " + new Date();
+          successElement.onload = resolve;
+          document.body.appendChild(successElement);
+        })
       })
     }
   };
