@@ -1,7 +1,4 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
-import { Console } from 'console';
-import { resolve } from 'path';
-import { rejects } from 'assert';
 
 declare let paypal: any;
 
